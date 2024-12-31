@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>For PyaPoneThu Lay</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(to bottom, #ffe4e1, #fadadd);
+            color: #333;
+            text-align: center;
+            overflow: hidden;
+        }
+
+        .page {
+            display: none;
+            padding: 20px;
+            margin: 20px auto;
+            max-width: 800px;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .page.active {
+            display: block;
+        }
+
+        .button {
+            display: inline-block;
+            padding: 10px 20px;
+            background: #ff69b4;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            font-size: 1.2rem;
+            margin-top: 20px;
+        }
+
+        .button:hover {
+            background: #ff85c2;
+        }
+
+        .music {
+            margin-top: 20px;
+        }
+
+        header {
+            background: #ffb6c1;
+            color: white;
+            padding: 20px;
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 2.5rem;
+        }
+
+        footer {
+            margin-top: 20px;
+            padding: 10px;
+            background: #ffb6c1;
+            color: white;
+        }
+
+        footer p {
+            margin: 0;
+        }
+
+        .gallery img {
+            width: 250px;
+            height: auto;
+            object-fit: cover;
+            border-radius: 10px;
+            margin: 10px;
+            display: none;
+        }
+
+        .gallery img.visible {
+            display: inline-block;
+        }
+
+        .gif {
+            margin: 20px 0;
+        }
+
+        .gif img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 10px;
+        }
+    </style>
+    <script>
+        let currentPage = 0;
+        let currentImage = 0;
+
+        function showPage(index) {
+            const pages = document.querySelectorAll('.page');
+            pages.forEach((page, i) => {
+                page.classList.remove('active');
+                if (i === index) {
+                    page.classList.add('active');
+                }
+            });
+        }
+
+        function nextPage() {
+            const pages = document.querySelectorAll('.page');
+            if (currentPage < pages.length - 1) {
+                currentPage++;
+                showPage(currentPage);
+            }
+        }
+
+        function cycleImages() {
+            const images = document.querySelectorAll('.gallery img');
+            images.forEach((img, index) => {
+                img.classList.remove('visible');
+                if (index === currentImage) {
+                    img.classList.add('visible');
+                }
+            });
+            currentImage = (currentImage + 1) % images.length;
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            showPage(currentPage);
+            setInterval(cycleImages, 3000);
+        });
+    </script>
+</head>
+<body>
+    <header>
+        <h1>❤️ New Year, New Goals But I'll always chose you ❤️</h1>
+    </header>
+
+    <div class="page active" id="page1">
+        <h2>ဟက်ပီး နှစ်သစ်ပါ ကို့ချစ်ချစ်လေး</h2>
+        <p>ပထမဆုံးအနေနဲ့ အများကြီးရှိတဲ့အထဲမှာမှ ကို့ကိုရွေးချယ်ပေးတဲ့အတွက်ရော အများကြီးနားလည်ပေးတဲ့အတွက်ရော ကို့သဲသဲလေးကို ကျေးဇူးလည်းတင်မိသလို နေ့တိုင်းပိုပိုပြီးချစ်မိလာပြီကွာ❤️</p>
+        <div class="gif">
+            <img src="https://media.giphy.com/media/cnngMdfKlkxzJjSRS3/giphy.gif" alt="Gif 1">
+        </div>
+        <div class="music">
+            <audio controls loop>
+                <source src="mymusic.mp3" type="audio/mpeg">
+                Your browser does not support the audio element.
+            </audio>
+        </div>
+        <a class="button" onclick="nextPage()">Next</a>
+    </div>
+
+    <div class="page" id="page2">
+        <h2>ကိုကိုတောင်းပန်ချင်တယ်ကွာ</h2>
+        <p>ကိုကိုလေ သဲသဲစီ ကိုနောက်ကြပီးမှ ရောက်လာခဲ့တဲ့ အတွက်ပေါ့ကွာ </p>
+        <p>ပြီးတော့ ကိုကိုကြောင့် နေ့တိုင်းမျက်ရည်ကြနေရတဲ့အတွက်လည်း ကိုကိုတောင်းပန်ချင်တယ်နော် နောက်ဆို ဟာသလေးတွေ လျှော့ပြောမယ်နော် မျက်ရည်တွေရော နှပ်ချီးတွေပါကုန်သွားမှာစိုးလို့လေ🤣</p>
+        <div class="gif">
+            <img src="https://media.giphy.com/media/uWzRXTQRoQzxDO9W0p/giphy.gif" alt="Gif 2">
+        </div>
+        <a class="button" onclick="nextPage()">Next</a>
+    </div>
+
+    <div class="page" id="page3">
+        <h2>ကိုကိုတို့ Memories တွေထဲက မှ ကို့အတွက်အမှတ်ရဆုံးလေးတွေ</h2>
+        <div class="gallery">
+            <img src="image1.png" alt="Memory 1" class="visible">
+        </div>
+        <div class="gif">
+            <img src="https://media.giphy.com/media/LOXAmVhFOdo0BmP9n6/giphy.gif" alt="Gif 3">
+        </div>
+        <a class="button" onclick="nextPage()">Next</a>
+    </div>
+
+    <div class="page" id="page4">
+        <h2>ကိုအောင်ချွဲအတွက်ကတော့ သဲသဲက ပထမဆုံးချစ်တဲ့ အမျိုးသမီးလေးပါ🫶💙</h2>
+        <p>သဲသဲနဲ့ပဲ စပြီးတော့ သဲသဲနဲ့ပဲ အဆုံးသတ်ချင်တယ်</p>
+    <p>သဲသဲနဲ့ အတူဖြစ်ချင်တဲ့ ရည်မှန်းချက်တွေ ဆန္ဒတွေအများကြီးထဲကမှ ပထမဆုံးအနေနဲ့ ကို့အချစ်လေးကို ကိုရအောင် လာတွေ့မယ်၊ သဲသဲလေးရဲ့ လက်ဖဝါးနုနုလေးကို ကိုင်ထားပြီးတော့ ဘယ်လောက်ထိသဘောကျတယ် ချစ်တယ်ဆိုတဲ့ အကြောင်းတွေ တဝကြီးပြောပြချင်တယ်💕</p>
+        <div class="gif">
+            <img src="https://media.giphy.com/media/yc2pHdAoxVOrJ2m5Ha/giphy.gif" alt="Gif 4">
+        </div>
+        <a class="button" onclick="nextPage()">Next</a>
+    </div>
+
+    <div class="page" id="page5">
+        <h2>New Year Wish To You</h2>
+        <p>အခုလာမယ့် နှစ်သစ် 2025 မှာ သဲသဲ ဖြစ်ချင်တာဟာတွေအာလုံးဖြစ်ပါစေကွာ</p>
+        <p>စိတ်ရော လူပါ ကျန်းမာစေချင်တယ် ပြီးတော့ သဲသဲရော အန်တီမေမေရော</p>
+        <p>ပြီးတော့ ကိုကို့ ကိုအပေါ်ကိုလည်း အများကြီးနားလည်ပေးပြီးတော့ ပိုပြီးဆက်ချစ်နိုင်ပါစေဗျာ, ကိုကိုကလည်း သဲသဲပေါ်ပိုပြီးကောင်းတဲ့ လက်တွဲဖော်အဖြစ်ကြိုးစားသွားမယ်ကွာ ပိုပြီးတော့လည်း ချစ်သွားမယ်ဗျာ</p>
+        <p>အများကြီးချစ်တယ်ဗျာ ကို့နှလုံးသားနုနုထွတ်ထွတ်လေး မိရွှေဇင်ကို</p>
+        <div class="gif">
+            <img src="https://media.giphy.com/media/KyEtlYiutRHVC68Ess/giphy.gif" alt="Gif 5">
+        </div>
+        <a class="button" href="tel:09973513555">Call Me</a>
+    </div>
+</body>
+</html>
